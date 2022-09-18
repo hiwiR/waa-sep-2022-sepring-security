@@ -1,8 +1,8 @@
 package com.example.security.controller;
 
-import com.example.security.Product;
 import com.example.security.entity.FireWord;
 import com.example.security.entity.FireWordLogger;
+import com.example.security.entity.Product;
 import com.example.security.repository.FireWordLoggerRepository;
 import com.example.security.repository.FireWordRepository;
 import com.example.security.service.ProductService;
@@ -16,15 +16,11 @@ import java.util.List;
 @RestController
 @RequestMapping("/products")
 public class ProductController {
-@Autowired
+    @Autowired
     private FireWordLoggerRepository fireWordLoggerRepository;
    @Autowired
     private FireWordRepository fireWordRepository;
 
-//    public ProductController(FireWordLoggerRepository fireWordLoggerRepository,FireWordRepository fireWordRepsoitory){
-//        this.fireWordLoggerRepository=fireWordLoggerRepository;
-//        this.fireWordRepository=fireWordRepository;
-//    }
 
 
 
@@ -38,13 +34,13 @@ public class ProductController {
 
     @GetMapping("/new")
     public FireWord getProductsnew(){
-        FireWord test = new FireWord(1,"stupid");
+        FireWord test = new FireWord("stupid");
         fireWordRepository.save(test);
-        FireWordLogger fl = new FireWordLogger(1,1, LocalDateTime.now(),test);
-        FireWordLogger f1 = new FireWordLogger(1,1, LocalDateTime.now(),test);
-        FireWordLogger f2 = new FireWordLogger(1,1, LocalDateTime.now(),test);
-        FireWordLogger f3 = new FireWordLogger(1,1, LocalDateTime.now(),test);
-        FireWordLogger f4 = new FireWordLogger(1,1, LocalDateTime.now(),test);
+        FireWordLogger fl = new FireWordLogger(1, LocalDateTime.now(),test);
+        FireWordLogger f1 = new FireWordLogger(1, LocalDateTime.now(),test);
+        FireWordLogger f2 = new FireWordLogger(1, LocalDateTime.now(),test);
+        FireWordLogger f3 = new FireWordLogger(1, LocalDateTime.now(),test);
+        FireWordLogger f4 = new FireWordLogger(1, LocalDateTime.now(),test);
         List<FireWordLogger> list = Arrays.asList(f1,f2,f3,f4,fl);
         fireWordLoggerRepository.saveAll(list);
 
@@ -52,7 +48,7 @@ public class ProductController {
         return fireWordRepository.findById(1).get();
     }
     @PostMapping
-    public void saveProducts(@RequestBody  Product product){
+    public void saveProducts(@RequestBody Product product){
         productService.saveNewProduct(product);
     }
 }

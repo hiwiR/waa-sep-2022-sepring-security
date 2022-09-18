@@ -1,5 +1,7 @@
 package com.example.security.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -12,13 +14,16 @@ import java.util.List;
 @AllArgsConstructor
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int id;
     private String email;
     private String password;
     @ManyToMany(fetch = FetchType.EAGER)
+    //@JsonBackReference
     private List<Role> roles;
-
+    @OneToOne(mappedBy = "user")
+    @JsonManagedReference
+    private Product product;
 
     public User(String password, String username) {
         this.email=username;

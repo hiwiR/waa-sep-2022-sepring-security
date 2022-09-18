@@ -13,17 +13,6 @@ public class KeycloakConfig {
     public KeycloakSpringBootConfigResolver keycloakConfigResolver() {
         return new KeycloakSpringBootConfigResolver();
     }
-//    @Bean
-//    JedisConnectionFactory jedisConnectionFactory() {
-//        return new JedisConnectionFactory();
-//    }
-
-//    @Bean
-//    public RedisTemplate<String, Object> reduisTemplate() {
-//        RedisTemplate<String, Object> myRedisTemplate = new RedisTemplate<>();
-//        myRedisTemplate.setConnectionFactory(jedisConnectionFactory());
-//        return myRedisTemplate;
-//    }
 
 
 }

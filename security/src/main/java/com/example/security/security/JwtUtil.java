@@ -16,7 +16,7 @@ import java.util.function.Function;
 public class JwtUtil {
     private static final long serialVersionUID = -2550185165626007488L;
 
-    public static final long JWT_TOKEN_VALIDITY = 15 * 60 * 60;
+    public static final long JWT_TOKEN_VALIDITY = 15 * 60 ;
 
     private final String secret = "God_Bless_Ethiopia";
 
