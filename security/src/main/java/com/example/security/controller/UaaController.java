@@ -12,10 +12,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/uaa")
@@ -33,6 +30,7 @@ public class UaaController {
     UserService userService;
 
     @PostMapping ("/authenticate")
+    @CrossOrigin
     public ResponseEntity<JwtResponse> authenticate(@RequestBody User user){
         authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(user.getEmail(),user.getPassword()));
         SecurityContextHolder.getContext().getAuthentication().getPrincipal();

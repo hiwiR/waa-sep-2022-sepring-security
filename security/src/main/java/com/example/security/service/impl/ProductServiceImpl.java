@@ -10,6 +10,8 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ProductServiceImpl implements ProductService {
     @Autowired
@@ -23,5 +25,10 @@ public class ProductServiceImpl implements ProductService {
         //product.setUser();
        productRepository.save(product);
 
+    }
+
+    @Override
+    public List<Product> getAllProducts() {
+        return (List<Product>)productRepository.findAll();
     }
 }

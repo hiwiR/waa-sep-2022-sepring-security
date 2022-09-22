@@ -28,8 +28,8 @@ public class ProductController {
     ProductService productService;
 
     @GetMapping
-    public String getProducts(){
-        return "<h1>Welcome to products page</h1>";
+    public List<Product> getProducts(){
+       return  productService.getAllProducts();
     }
 
     @GetMapping("/new")
